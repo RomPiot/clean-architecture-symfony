@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "45a7905088957a68084b3269cf9e7874",
+    "content-hash": "aa4cc55a62333fa15e6e7d13b51501a1",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -8573,6 +8573,54 @@
                 }
             ],
             "time": "2021-07-19T06:14:47+00:00"
+        },
+        {
+            "name": "qossmic/deptrac-shim",
+            "version": "0.14.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/qossmic/deptrac-shim.git",
+                "reference": "e4d67be0fff9cec8dc1943f50e1dbacd08fd5bf1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/qossmic/deptrac-shim/zipball/e4d67be0fff9cec8dc1943f50e1dbacd08fd5bf1",
+                "reference": "e4d67be0fff9cec8dc1943f50e1dbacd08fd5bf1",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-tokenizer": "*",
+                "ext-zlib": "*",
+                "php": "^7.2 || 8.0.*"
+            },
+            "replace": {
+                "qossmic/deptrac": "self.version"
+            },
+            "suggest": {
+                "ext-dom": "For using the JUnit output formatter"
+            },
+            "bin": [
+                "deptrac"
+            ],
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Simon Mönch",
+                    "email": "simon.moench@qossmic.com",
+                    "role": "maintainer"
+                }
+            ],
+            "description": "deptrac phar distribution",
+            "support": {
+                "issues": "https://github.com/qossmic/deptrac-shim/issues",
+                "source": "https://github.com/qossmic/deptrac-shim/tree/0.14.1"
+            },
+            "time": "2021-07-04T10:19:55+00:00"
         },
         {
             "name": "sebastian/cli-parser",
