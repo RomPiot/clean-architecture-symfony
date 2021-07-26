@@ -12,18 +12,18 @@ class Category
 
     private DateTimeInterface $updatedAt;
 
-    protected bool $isEnabled;
+    protected bool $isActive;
 
     public function __construct(
         string $name,
         DateTimeInterface $createdAt,
         DateTimeInterface $updatedAt,
-        bool $isEnabled
+        bool $isActive
     ) {
         $this->name = $name;
         $this->createdAt = $createdAt;
         $this->updatedAt = $updatedAt;
-        $this->isEnabled = $isEnabled;
+        $this->isActive = $isActive;
     }
 
     /**
@@ -98,26 +98,27 @@ class Category
         return $this;
     }
 
+
     /**
-     * Get the value of isEnabled
+     * Get the value of isActive
      *
      * @return bool
      */
-    public function getIsEnabled(): bool
+    public function getIsActive(): bool
     {
-        return $this->isEnabled;
+        return $this->isActive;
     }
 
     /**
-     * Set the value of isEnabled
+     * Set the value of isActive
      *
-     * @param bool $isEnabled
+     * @param bool $isActive
      *
      * @return self
      */
-    public function setIsEnabled(bool $isEnabled): self
+    public function setIsActive(bool $isActive): self
     {
-        $this->isEnabled = $isEnabled;
+        $this->isActive = $isActive;
 
         return $this;
     }
