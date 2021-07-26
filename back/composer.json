@@ -122,7 +122,7 @@
           "symfony composer run db:migration",
           "symfony composer run db:data"
         ],
-        "error": "phpstan analyse src --no-progress --error-format=table"
+        "phpstan": "phpstan analyse src --ansi --no-progress --error-format=table"
       },
     "conflict": {
         "symfony/symfony": "*"
