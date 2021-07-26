@@ -2,27 +2,22 @@
 
 namespace Domain\Category\Model;
 
+use DateTimeImmutable;
 use DateTimeInterface;
 
 class Category
 {
     private string $name;
-
     private DateTimeInterface $createdAt;
-
     private DateTimeInterface $updatedAt;
-
     protected bool $isActive;
 
     public function __construct(
         string $name,
-        DateTimeInterface $createdAt,
-        DateTimeInterface $updatedAt,
-        bool $isActive
+        bool $isActive = true
     ) {
         $this->name = $name;
-        $this->createdAt = $createdAt;
-        $this->updatedAt = $updatedAt;
+        $this->createdAt = new DateTimeImmutable();
         $this->isActive = $isActive;
     }
 

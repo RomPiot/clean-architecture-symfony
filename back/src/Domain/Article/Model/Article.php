@@ -7,27 +7,23 @@ use DateTimeInterface;
 class Article
 {
     private string $title;
-
     private string $content;
-
     private DateTimeInterface $createdAt;
-
     private DateTimeInterface $updatedAt;
-
     private bool $isPublished;
+    protected bool $isActive;
 
     public function __construct(
         string $title,
         string $content,
-        DateTimeInterface $createdAt,
-        DateTimeInterface $updatedAt,
-        bool $isPublished
+        bool $isPublished = false,
+        bool $isActive = true
     ) {
         $this->title = $title;
         $this->content = $content;
-        $this->createdAt = $createdAt;
-        $this->updatedAt = $updatedAt;
+        $this->createdAt = new DateTimeImmutable();
         $this->isPublished = $isPublished;
+        $this->isActive = $isActive;
     }
 
 
@@ -147,6 +143,30 @@ class Article
     public function setIsPublished(bool $isPublished): self
     {
         $this->isPublished = $isPublished;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of isActive
+     *
+     * @return bool
+     */
+    public function getIsActive(): bool
+    {
+        return $this->isActive;
+    }
+
+    /**
+     * Set the value of isActive
+     *
+     * @param bool $isActive
+     *
+     * @return self
+     */
+    public function setIsActive(bool $isActive): self
+    {
+        $this->isActive = $isActive;
 
         return $this;
     }
