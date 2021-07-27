@@ -18,14 +18,14 @@ class Article
 
     /**
      * Article constructor
-     * 
-     * @param string          $title 
-     * @param string          $content 
-     * @param ArrayCollection $categories 
-     * @param bool            $isPublished 
-     * @param bool            $isActive 
-     * 
-     * @return void 
+     *
+     * @param string          $title
+     * @param string          $content
+     * @param ArrayCollection $categories
+     * @param boolean         $isPublished
+     * @param boolean         $isActive
+     *
+     * @return void
      */
     public function __construct(
         string $title,
@@ -34,14 +34,13 @@ class Article
         bool $isPublished = false,
         bool $isActive = true,
     ) {
-        $this->title = $title;
-        $this->content = $content;
-        $this->createdAt = new DateTimeImmutable();
+        $this->title       = $title;
+        $this->content     = $content;
+        $this->createdAt   = new DateTimeImmutable();
         $this->isPublished = $isPublished;
-        $this->isActive = $isActive;
-        $this->categories = $categories;
+        $this->isActive    = $isActive;
+        $this->categories  = $categories;
     }
-
 
     /**
      * Get the value of title
@@ -52,6 +51,7 @@ class Article
     {
         return $this->title;
     }
+
 
     /**
      * Set the value of title
@@ -142,7 +142,7 @@ class Article
     /**
      * Get the value of isPublished
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsPublished(): bool
     {
@@ -152,7 +152,7 @@ class Article
     /**
      * Set the value of isPublished
      *
-     * @param bool $isPublished
+     * @param boolean $isPublished
      *
      * @return self
      */
@@ -166,7 +166,7 @@ class Article
     /**
      * Get the value of isActive
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsActive(): bool
     {
@@ -176,7 +176,7 @@ class Article
     /**
      * Set the value of isActive
      *
-     * @param bool $isActive
+     * @param boolean $isActive
      *
      * @return self
      */
