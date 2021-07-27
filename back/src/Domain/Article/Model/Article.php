@@ -2,7 +2,9 @@
 
 namespace Domain\Article\Entity;
 
+use DateTimeImmutable;
 use DateTimeInterface;
+use Doctrine\Common\Collections\ArrayCollection;
 
 class Article
 {
@@ -11,19 +13,33 @@ class Article
     private DateTimeInterface $createdAt;
     private DateTimeInterface $updatedAt;
     private bool $isPublished;
-    protected bool $isActive;
+    private bool $isActive;
+    private ArrayCollection $categories;
 
+    /**
+     * Article constructor
+     * 
+     * @param string          $title 
+     * @param string          $content 
+     * @param ArrayCollection $categories 
+     * @param bool            $isPublished 
+     * @param bool            $isActive 
+     * 
+     * @return void 
+     */
     public function __construct(
         string $title,
         string $content,
+        ArrayCollection $categories,
         bool $isPublished = false,
-        bool $isActive = true
+        bool $isActive = true,
     ) {
         $this->title = $title;
         $this->content = $content;
         $this->createdAt = new DateTimeImmutable();
         $this->isPublished = $isPublished;
         $this->isActive = $isActive;
+        $this->categories = $categories;
     }
 
 
@@ -167,6 +183,30 @@ class Article
     public function setIsActive(bool $isActive): self
     {
         $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of categories
+     *
+     * @return ArrayCollection
+     */
+    public function getCategories(): ArrayCollection
+    {
+        return $this->categories;
+    }
+
+    /**
+     * Set the value of categories
+     *
+     * @param ArrayCollection $categories
+     *
+     * @return self
+     */
+    public function setCategories(ArrayCollection $categories): self
+    {
+        $this->categories = $categories;
 
         return $this;
     }
