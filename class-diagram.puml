@@ -1,0 +1,82 @@
+' CTRL+SHIFT+X to export
+' CTRL+SHIFT+W to preview
+
+@startuml class-diagram
+
+' Entities
+
+class Page {
+    - title: string
+    - content: json
+    - isCommentAllowed: boolean
+    - created_at: datetime
+    - updated_at: datetime
+    - active: boolean
+}
+
+
+class Article {
+    - title: string
+    - blocks: Array_ArticleBlock
+    - isCommentAllowed: boolean
+    - author: User
+    - created_at: datetime
+    - updated_at: datetime
+    - active: boolean
+}
+
+class ArticleBlock {
+    - page: Page
+    - content: text
+    - created_at: datetime
+    - updated_at: datetime
+    - active: boolean
+}
+
+
+class Comment {
+    - title: string
+    - content: text
+    - article: Article
+    - author: User
+    - created_at: datetime
+    - updated_at: datetime
+    - active: boolean
+}
+
+class User {
+    - username: string
+    - email: string
+    - name: string
+    - lastname: string
+    - birthday: date
+    - password: string
+    - created_at: datetime
+    - updated_at: datetime
+    - active: boolean
+}
+
+class Role {
+    - name: string
+    - created_at: datetime
+    - updated_at: datetime
+    - active: boolean
+}
+
+' Relations
+Article "One" -- "Many" Comment
+User "One" -- "Many" Article
+User "One" -- "Many" Comment
+User "Many" -- "One" Role
+User "One" -- "Many" Page
+Article "One" -- "Many" ArticleBlock
+
+' Example to extend
+' class Test extends Page {
+'     - field1: string
+'     # field2: text
+'     ~ method1()
+'     + method2()
+' }
+
+@enduml
