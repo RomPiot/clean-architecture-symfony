@@ -1,6 +1,6 @@
 <?php
 
-namespace Domain\Category\Model;
+namespace Domain\CMS\Article\Model;
 
 use DateTimeImmutable;
 use DateTimeInterface;

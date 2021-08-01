@@ -1,6 +1,6 @@
 <?php
 
-namespace Domain\Page\Model;
+namespace Domain\CMS\Page\Model;
 
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;

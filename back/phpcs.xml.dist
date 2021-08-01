@@ -22,6 +22,7 @@
         <exclude name="PEAR.Commenting.FileComment.Missing" />
         <exclude name="PEAR.Classes.ClassDeclaration.OpenBraceNotAlone" />
         <exclude name="PSR2.Classes.ClassDeclaration.OpenBraceNotAlone" />
+        <exclude name="Generic.Commenting.DocComment.MissingShort" />
 
         <!-- <exclude name="PEAR.NamingConventions.ValidFunctionName.ScopeNotCamelCaps" />
         <exclude name="PEAR.NamingConventions.ValidFunctionName.NotCamelCaps" />
