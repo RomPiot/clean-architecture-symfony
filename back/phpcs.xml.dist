@@ -22,7 +22,7 @@
         <exclude name="PEAR.Commenting.FileComment.Missing" />
         <exclude name="PEAR.Classes.ClassDeclaration.OpenBraceNotAlone" />
         <exclude name="PSR2.Classes.ClassDeclaration.OpenBraceNotAlone" />
-        
+
         <!-- <exclude name="PEAR.NamingConventions.ValidFunctionName.ScopeNotCamelCaps" />
         <exclude name="PEAR.NamingConventions.ValidFunctionName.NotCamelCaps" />
         <exclude name="PEAR.ControlStructures.MultiLineCondition.SpaceBeforeOpenBrace" />
