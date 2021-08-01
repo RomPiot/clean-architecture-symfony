@@ -13,7 +13,7 @@ class PageSection
     private $blocks;
     private string $name;
     private int $column;
-    private bool $isActive;
+    private bool $isActive = true;
 
     /**
      *
@@ -23,13 +23,15 @@ class PageSection
      *
      * @return void
      */
-    public function __construct(Page $page, string $name, int $column = 12)
-    {
+    public function __construct(
+        Page $page,
+        string $name,
+        int $column = 12
+    ) {
         $this->page = $page;
         $this->blocks = [];
         $this->name = $name;
         $this->column = $column;
-        $this->isActive = true;
     }
 
     /**
@@ -70,7 +72,7 @@ class PageSection
      * Set the value of blocks
      *
      * @param Block $block
-
+     *
      * @return self
      */
     public function setBlocks($block): self
