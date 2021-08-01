@@ -5,37 +5,40 @@
 
 ' Entities
 
-class Page {
-    - title: string
-    - isCommentAllowed: boolean
-    - isActive: boolean
-}
-
 class Article {
     - title: string
     - author: User
+    - blocks: Array_Block
     - isCommentAllowed: boolean
     - isActive: boolean
 }
 
-class PageBlock {
-    - page: Page
-    - block: Block
-    - column: integer
-}
-
-class ArticleBlock {
-    - article: Article
-    - block: Block
-}
-
-class BlockType {
-    - name: string
+class Page {
+    - title: string
+    - sections: Array_Section
+    - blocks: Array_Block
+    - isCommentAllowed: boolean
     - isActive: boolean
 }
 
-class BlockTypeInterface {
+class PageSection {
+    - page: Page
+    - blocks: Array_Block
     - name: string
+    - column: integer
+    - isActive: boolean
+}
+
+class Block {
+    - entity: string
+    - section: Section
+    - blockType: string
+    - name: string
+}
+
+class WysiwygBlock {
+    - block: Block
+    - content: string
     - isActive: boolean
 }
 
@@ -68,9 +71,11 @@ Page "One" *-- "Many" Comment : has >
 User "One" *-- "Many" Article : write >
 User "One" *- "Many" Comment : write >
 User "Many" -* "One" Role : has >
-Page "One" *-- "Many" PageBlock : has >
-' Article "One" *-- "Many" Block : has >
-' Block "One" -- "One" BlockType
+Article "Many" *-- "One" Block : has >
+Page "One" *-- "Many" PageSection: has >
+Page "One" *-- "Many" Block : has >
+PageSection "One" *-- "Many" Block: has >
+Block "One" *-- "Many" WysiwygBlock: has >
 
 
 @enduml
