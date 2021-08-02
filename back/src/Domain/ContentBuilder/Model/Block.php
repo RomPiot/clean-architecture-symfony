@@ -12,26 +12,30 @@ class Block
     private ?PageSection $pageSection;
     private BlockTypeInterface $blockType;
     private string $name;
+    private int $column;
 
     /**
      *
      * @param BlockEntityInterface $entity
-     * @param mixed                $blockType
+     * @param BlockTypeInterface   $blockType
      * @param string               $name
      * @param PageSection          $pageSection
+     * @param int                  $column
      *
      * @return void
      */
     public function __construct(
         BlockEntityInterface $entity,
-        $blockType,
+        BlockTypeInterface $blockType,
         string $name,
-        PageSection $pageSection,
+        ?PageSection $pageSection,
+        int $column = 12
     ) {
         $this->entity = $entity;
         $this->blockType = $blockType;
         $this->name = $name;
         $this->section = $pageSection;
+        $this->column = $column;
     }
 
     /**
@@ -126,6 +130,30 @@ class Block
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of column
+     *
+     * @return int
+     */
+    public function getColumn(): int
+    {
+        return $this->column;
+    }
+
+    /**
+     * Set the value of column
+     *
+     * @param int $column
+     *
+     * @return self
+     */
+    public function setColumn(int $column): self
+    {
+        $this->column = $column;
 
         return $this;
     }

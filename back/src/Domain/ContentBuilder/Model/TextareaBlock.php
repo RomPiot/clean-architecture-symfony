@@ -2,7 +2,9 @@
 
 namespace Domain\ContentBuilder\Model;
 
-class TextareaBlock
+use Domain\ContentBuilder\Contract\BlockTypeInterface;
+
+class TextareaBlock implements BlockTypeInterface
 {
-    
+
 }

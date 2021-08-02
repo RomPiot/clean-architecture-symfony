@@ -2,21 +2,26 @@
 
 namespace Domain\CMS\Page\Model;
 
+use Domain\ContentBuilder\Contract\BlockEntityInterface;
+use Domain\ContentBuilder\Trait\BlockTrait;
+use Domain\Shared\ArrayCollection;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 
-class Page
+class Page implements BlockEntityInterface
 {
+    use BlockTrait;
+
     private UuidInterface $uuid;
     private string $title;
     /**
      * @return PageSection[]
      */
-    private $sections = [];
+    private ArrayCollection $sections;
     /**
      * @return Block[]
      */
-    private $blocks = [];
+    private ArrayCollection $blocks;
     private bool $isCommentedAllowed;
     private bool $isActive;
 
@@ -36,6 +41,8 @@ class Page
         $this->uuid = Uuid::uuid4();
         $this->title = $title;
         $this->isCommentedAllowed = $isCommentedAllowed;
+        $this->blocks = new ArrayCollection();
+        $this->sections = new ArrayCollection();
     }
 
     /**
@@ -77,45 +84,44 @@ class Page
      *
      * @return PageSection[]
      */
-    public function getSections()
+    public function getSections(): ArrayCollection
     {
         return $this->sections;
     }
 
     /**
-     * Set the value of sections
+     * Add value in sections
      *
      * @param PageSection $section
      *
      * @return self
      */
-    public function setSections($section): self
+    public function addSection($section): self
     {
-        $this->sections[] = $section;
+
+        if (!$this->sections->contains($section)) {
+            $this->sections->add($section);
+            $section->setPage($this);
+        }
 
         return $this;
     }
 
     /**
-     * Get the value of blocks
+     * Remove value from sections
      *
-     * @return Block[]
-     */
-    public function getBlocks()
-    {
-        return $this->blocks;
-    }
-
-    /**
-     * Set the value of blocks
-     *
-     * @param Block $block
+     * @param PageSection $section
      *
      * @return self
      */
-    public function setBlocks($block): self
+    public function removeSection($section): self
     {
-        $this->blocks[] = $block;
+        if ($this->sections->removeElement($section)) {
+            if ($section->getPage() === $this) {
+                // TODO
+                // $section->setPage(null);
+            }
+        }
 
         return $this;
     }

@@ -2,36 +2,36 @@
 
 namespace Domain\CMS\Page\Model;
 
+use Domain\ContentBuilder\Trait\BlockTrait;
 use Domain\ContentBuilder\Model\Block;
+use Domain\Shared\ArrayCollection;
 
 class PageSection
 {
+    use BlockTrait;
+
     private Page $page;
     /**
      * @return Block[]
      */
-    private $blocks;
+    private ArrayCollection $blocks;
     private string $name;
-    private int $column;
     private bool $isActive = true;
 
     /**
      *
      * @param Page   $page
      * @param string $name
-     * @param int    $column
      *
      * @return void
      */
     public function __construct(
         Page $page,
         string $name,
-        int $column = 12
     ) {
         $this->page = $page;
-        $this->blocks = [];
+        $this->blocks = new ArrayCollection();
         $this->name = $name;
-        $this->column = $column;
     }
 
     /**
@@ -59,30 +59,6 @@ class PageSection
     }
 
     /**
-     * Get the value of blocks
-     *
-     * @return Block[]
-     */
-    public function getBlocks()
-    {
-        return $this->blocks;
-    }
-
-    /**
-     * Set the value of blocks
-     *
-     * @param Block $block
-     *
-     * @return self
-     */
-    public function setBlocks($block): self
-    {
-        $this->blocks[] = $block;
-
-        return $this;
-    }
-
-    /**
      * Get the value of name
      *
      * @return string
@@ -102,30 +78,6 @@ class PageSection
     public function setName(string $name): self
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of column
-     *
-     * @return int
-     */
-    public function getColumn(): int
-    {
-        return $this->column;
-    }
-
-    /**
-     * Set the value of column
-     *
-     * @param int $column
-     *
-     * @return self
-     */
-    public function setColumn(int $column): self
-    {
-        $this->column = $column;
 
         return $this;
     }

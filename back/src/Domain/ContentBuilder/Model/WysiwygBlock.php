@@ -2,7 +2,8 @@
 
 namespace Domain\ContentBuilder\Model;
 
-class WysiwygBlock
+use Domain\ContentBuilder\Contract\BlockTypeInterface;
+
+class WysiwygBlock implements BlockTypeInterface
 {
-    
 }
