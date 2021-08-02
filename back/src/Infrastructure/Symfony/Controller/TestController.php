@@ -51,7 +51,6 @@ class TestController
         $page->addSection($section2);
         $page->removeSection($section1);
 
-        $page->addBlock($section1);
         \dd($page);
 
         // return $this->render(

@@ -3,25 +3,18 @@
 namespace Domain\CMS\Page\Model;
 
 use Domain\ContentBuilder\Contract\BlockEntityInterface;
-use Domain\ContentBuilder\Trait\BlockTrait;
 use Domain\Shared\ArrayCollection;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 
 class Page implements BlockEntityInterface
 {
-    use BlockTrait;
-
     private UuidInterface $uuid;
     private string $title;
     /**
      * @return PageSection[]
      */
     private ArrayCollection $sections;
-    /**
-     * @return Block[]
-     */
-    private ArrayCollection $blocks;
     private bool $isCommentedAllowed;
     private bool $isActive;
 
@@ -41,7 +34,6 @@ class Page implements BlockEntityInterface
         $this->uuid = Uuid::uuid4();
         $this->title = $title;
         $this->isCommentedAllowed = $isCommentedAllowed;
-        $this->blocks = new ArrayCollection();
         $this->sections = new ArrayCollection();
     }
 

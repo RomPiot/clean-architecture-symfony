@@ -2,14 +2,11 @@
 
 namespace Domain\CMS\Page\Model;
 
-use Domain\ContentBuilder\Trait\BlockTrait;
 use Domain\ContentBuilder\Model\Block;
 use Domain\Shared\ArrayCollection;
 
 class PageSection
 {
-    use BlockTrait;
-
     private Page $page;
     /**
      * @return Block[]
@@ -102,6 +99,52 @@ class PageSection
     public function setIsActive(bool $isActive): self
     {
         $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    /**
+     * Get value of blocks
+     *
+     * @return Block[]
+     */
+    public function getBlocks(): ArrayCollection
+    {
+        return $this->blocks;
+    }
+
+    /**
+     * Add value in blocks
+     *
+     * @param Block $block
+     *
+     * @return self
+     */
+    public function addBlock($block): self
+    {
+        if (!$this->blocks->contains($block)) {
+            $this->blocks->add($block);
+            $block->setPageSection($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Remove value from blocks
+     *
+     * @param Block $block
+     *
+     * @return self
+     */
+    public function removeBlock($block): self
+    {
+        if ($this->blocks->removeElement($block)) {
+            // TODO
+            // if ($block->getPage() === $this) {
+            //     $block->setPage(null);
+            // }
+        }
 
         return $this;
     }
