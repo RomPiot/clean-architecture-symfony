@@ -2,7 +2,7 @@
 
 namespace Domain\CMS\Article\Contract\Repository;
 
-interface CategoryRepositoryInterface
+interface CategoryRepository
 {
 
 }

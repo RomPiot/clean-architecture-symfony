@@ -3,30 +3,30 @@
 namespace Domain\ContentBuilder\Model;
 
 use Domain\CMS\Page\Model\PageSection;
-use Domain\ContentBuilder\Contract\BlockEntityInterface;
-use Domain\ContentBuilder\Contract\BlockTypeInterface;
+use Domain\ContentBuilder\Contract\BlockType;
+use Domain\ContentBuilder\Contract\BlockEntity;
 
 class Block
 {
-    private BlockEntityInterface $entity;
+    private BlockEntity $entity;
     private ?PageSection $pageSection;
-    private BlockTypeInterface $blockType;
+    private BlockType $blockType;
     private string $name;
     private int $column;
 
     /**
      *
-     * @param BlockEntityInterface $entity
-     * @param BlockTypeInterface   $blockType
-     * @param string               $name
-     * @param PageSection          $pageSection
-     * @param int                  $column
+     * @param BlockEntity $entity
+     * @param BlockType   $blockType
+     * @param string      $name
+     * @param PageSection $pageSection
+     * @param int         $column
      *
      * @return void
      */
     public function __construct(
-        BlockEntityInterface $entity,
-        BlockTypeInterface $blockType,
+        BlockEntity $entity,
+        BlockType $blockType,
         string $name,
         ?PageSection $pageSection,
         int $column = 12
@@ -41,9 +41,9 @@ class Block
     /**
      * Get the value of entity
      *
-     * @return BlockEntityInterface
+     * @return BlockEntity
      */
-    public function getEntity(): BlockEntityInterface
+    public function getEntity(): BlockEntity
     {
         return $this->entity;
     }
@@ -51,11 +51,11 @@ class Block
     /**
      * Set the value of entity
      *
-     * @param BlockEntityInterface $entity
+     * @param BlockEntity $entity
      *
      * @return self
      */
-    public function setEntity(BlockEntityInterface $entity): self
+    public function setEntity(BlockEntity $entity): self
     {
         $this->entity = $entity;
 
@@ -89,9 +89,9 @@ class Block
     /**
      * Get the value of blockType
      *
-     * @return BlockTypeInterface
+     * @return BlockType
      */
-    public function getBlockType(): BlockTypeInterface
+    public function getBlockType(): BlockType
     {
         return $this->blockType;
     }
@@ -99,11 +99,11 @@ class Block
     /**
      * Set the value of blockType
      *
-     * @param BlockTypeInterface $blockType
+     * @param BlockType $blockType
      *
      * @return self
      */
-    public function setBlockType(BlockTypeInterface $blockType): self
+    public function setBlockType(BlockType $blockType): self
     {
         $this->blockType = $blockType;
 

@@ -2,7 +2,7 @@
 
 namespace Domain\ContentBuilder\Contract;
 
-interface BlockTypeInterface
+interface BlockEntity
 {
 
 }

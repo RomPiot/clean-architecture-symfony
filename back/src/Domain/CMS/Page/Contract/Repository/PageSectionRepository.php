@@ -2,7 +2,7 @@
 
 namespace Domain\CMS\Page\Contract\Repository;
 
-interface PageTransRepositoryInterface
+interface PageSectionRepository
 {
 
 }

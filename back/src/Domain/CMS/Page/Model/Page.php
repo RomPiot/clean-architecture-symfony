@@ -2,12 +2,12 @@
 
 namespace Domain\CMS\Page\Model;
 
-use Domain\ContentBuilder\Contract\BlockEntityInterface;
+use Domain\ContentBuilder\Contract\BlockEntity;
 use Domain\Shared\ArrayCollection;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 
-class Page implements BlockEntityInterface
+class Page implements BlockEntity
 {
     private UuidInterface $uuid;
     private string $title;
