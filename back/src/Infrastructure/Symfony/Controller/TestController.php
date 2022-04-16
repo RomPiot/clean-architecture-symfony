@@ -23,7 +23,7 @@ class TestController
      * @throws LogicException
      * @throws UnexpectedValueException
      */
-    public function index(): Response
+    public function test(): Response
     {
 
         $page = new Page("test page");

@@ -30,7 +30,7 @@ services:
     
     mailer:
         image:  maildev/maildev
-        container_name: "sf_maildev"
+        container_name: "clean_arch_mailer"
         command: bin/maildev --web 1080 --smtp 1025 --hide-extensions STARTTLS
         ports: [1025, 1080]
 

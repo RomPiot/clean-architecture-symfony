@@ -5,77 +5,37 @@
 
 ' Entities
 
-class Article {
-    - title: string
-    - author: User
-    - blocks: Array_Block
-    - isCommentAllowed: boolean
-    - isActive: boolean
-}
-
 class Page {
     - title: string
-    - sections: Array_Section
-    - blocks: Array_Block
     - isCommentAllowed: boolean
     - isActive: boolean
+    - type: string
 }
 
 class PageSection {
-    - page: Page
-    - blocks: Array_Block
+    - page_id: Page
     - name: string
-    - column: integer
     - isActive: boolean
 }
 
 class Block {
-    - entity: string
-    - section: Section
-    - blockType: string
+    - column: integer
     - name: string
+    - order: integer
+    - input_type: string
+    - page_section_id: Section
 }
 
-class WysiwygBlock {
-    - block: Block
-    - content: string
-    - isActive: boolean
-}
-
-class Comment {
-    - title: string
+class Translation {
+    - locale: string
+    - table: string
+    - primary_key: string
     - content: text
-    - article: Article
-    - author: User
-    - isActive: boolean
-}
-
-class User {
-    - username: string
-    - email: string
-    - name: string
-    - lastname: string
-    - birthday: date
-    - password: string
-    - isActive: boolean
-}
-
-class Role {
-    - name: string
-    - isActive: boolean
 }
 
 ' Relations
-Article "One" *-- "Many" Comment : has >
-Page "One" *-- "Many" Comment : has >
-User "One" *-- "Many" Article : write >
-User "One" *- "Many" Comment : write >
-User "Many" -* "One" Role : has >
-Article "Many" *-- "One" Block : has >
 Page "One" *-- "Many" PageSection: has >
-Page "One" *-- "Many" Block : has >
 PageSection "One" *-- "Many" Block: has >
-Block "One" *-- "Many" WysiwygBlock: has >
 
 
 @enduml
